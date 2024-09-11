@@ -5,13 +5,13 @@ class ChatProvider extends ChangeNotifier {
   List<Message> messagesList = [
     Message(text: 'Hola', fromWho: FromWho.mine),
     Message(text: 'buenos dias', fromWho: FromWho.mine),
-     Message(text: 'como estas', fromWho: FromWho.hers),
+    Message(text: 'como estas', fromWho: FromWho.hers),
   ];
 
   Future<void> sendMessage(String text) async {
     // if (text.isEmpty) return;
-    // final newMessage = Message(text: text, fromWho: FromWho.mine);
-    // message.add(newMessage);
-    // notifyListeners();
+    final newMessage = Message(text: text, fromWho: FromWho.mine);
+    messagesList.add(newMessage);
+    notifyListeners();
   }
 }
