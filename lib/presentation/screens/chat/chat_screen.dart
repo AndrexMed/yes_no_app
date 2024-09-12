@@ -11,6 +11,8 @@ class ChatScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final chatProvider = context.read<ChatProvider>();
+
     return Scaffold(
       appBar: AppBar(
         leading: const Padding(
@@ -22,6 +24,14 @@ class ChatScreen extends StatelessWidget {
         ),
         title: const Text("Mi amor ❤️"),
         centerTitle: false,
+        actions: [
+          IconButton(
+            icon: const Icon(Icons.delete_forever),
+            onPressed: () {
+              chatProvider.clearMessages();
+            },
+          )
+        ],
       ),
       body: _ChatView(),
     );

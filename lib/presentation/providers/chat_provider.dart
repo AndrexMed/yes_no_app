@@ -38,4 +38,9 @@ class ChatProvider extends ChangeNotifier {
 
     moveScrollToBottom();
   }
+
+  Future<void> clearMessages() async {
+    messagesList.clear();
+    notifyListeners();
+  }
 }
